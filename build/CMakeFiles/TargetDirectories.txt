@@ -1,4 +1,0 @@
-C:/Users/Dean/Desktop/hunter-tiny-dnn/build/CMakeFiles/TinyDNN.dir
-C:/Users/Dean/Desktop/hunter-tiny-dnn/build/CMakeFiles/INSTALL.dir
-C:/Users/Dean/Desktop/hunter-tiny-dnn/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Dean/Desktop/hunter-tiny-dnn/build/CMakeFiles/ZERO_CHECK.dir

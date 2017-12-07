@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(TinyDNN VERSION 1.0.2)
+project(TinyDNN VERSION 1.0.3)
 
 
 set(Tiny_DNN_Header_Files
@@ -11,7 +11,7 @@ add_library(TinyDNN ${Tiny_DNN_Header_Files} )
 
 target_include_directories(
     TinyDNN
-    PUBLIC
+    INTERFACE
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>"
 )
 

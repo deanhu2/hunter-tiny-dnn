@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(TinyDNN VERSION 1.0.1)
+project(TinyDNN VERSION 1.0.2)
 
 
 set(Tiny_DNN_Header_Files

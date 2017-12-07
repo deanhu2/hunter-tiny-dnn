@@ -1,21 +1,17 @@
 cmake_minimum_required(VERSION 3.0)
-project(TinyDNN VERSION 1.0.4)
-
 
 set(Tiny_DNN_Header_Files
 	${CMAKE_CURRENT_SOURCE_DIR}/tiny_dnn/tiny_dnn.h
 )
 
+add_library(TinyDNN INTERFACE)
 
-add_library(TinyDNN ${Tiny_DNN_Header_Files} )
-
-target_include_directories(
-    TinyDNN
-    INTERFACE
-    "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>"
+target_include_directories(TinyDNN INTERFACE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/tiny_dnn>
+    $<INSTALL_INTERFACE:${YOUR_INSTALL_DIR}/tiny_dnn>
 )
 
-# Installation (https://github.com/forexample/package-example) {
+
 
 set(config_install_dir "lib/cmake/${PROJECT_NAME}")
 set(include_install_dir "include")
@@ -27,22 +23,8 @@ set(project_config "${generated_dir}/${PROJECT_NAME}Config.cmake")
 set(TARGETS_EXPORT_NAME "${PROJECT_NAME}Targets")
 set(namespace "${PROJECT_NAME}::")
 
-include(CMakePackageConfigHelpers)
 
-# Use:
-#   * PROJECT_VERSION
-write_basic_package_version_file(
-    "${version_config}" COMPATIBILITY SameMajorVersion
-)
 
-# Use:
-#   * TARGETS_EXPORT_NAME
-#   * PROJECT_NAME
-configure_package_config_file(
-    "cmake/Config.cmake.in"
-    "${project_config}"
-    INSTALL_DESTINATION "${config_install_dir}"
-)
 
 install(
     TARGETS TinyDNN
@@ -69,5 +51,3 @@ install(
     NAMESPACE "${namespace}"
     DESTINATION "${config_install_dir}"
 )
-
-set_target_properties(TinyDNN PROPERTIES LINKER_LANGUAGE Cxx) 

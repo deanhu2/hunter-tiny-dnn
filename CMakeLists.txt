@@ -1,50 +1,63 @@
 cmake_minimum_required(VERSION 3.0)
 
-set(Tiny_DNN_Header_Files
-	${CMAKE_CURRENT_SOURCE_DIR}/tiny_dnn/tiny_dnn.h
-)
+project(TinyDNN VERSION 0.0.7 LANGUAGES CXX)
+
 
 add_library(TinyDNN INTERFACE)
 
+# add include folders to the library and targets that consume it
 target_include_directories(TinyDNN INTERFACE
-    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/tiny_dnn>
-    $<INSTALL_INTERFACE:${YOUR_INSTALL_DIR}/tiny_dnn>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/tiny_dnn>
+    $<INSTALL_INTERFACE:include>
 )
 
+set_target_properties (TinyDNN PROPERTIES EXPORT_NAME TinyDNN)
+
+install (TARGETS TinyDNN EXPORT TinyDNNTargets)
+
+install(
+    DIRECTORY tiny_dnn
+    DESTINATION include
+)
+
+enable_testing()
 
 
 set(config_install_dir "lib/cmake/${PROJECT_NAME}")
-set(include_install_dir "include")
+set(include_install_dir "include/${PROJECT_NAME}")
 
 set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
 
+
 set(version_config "${generated_dir}/${PROJECT_NAME}ConfigVersion.cmake")
-#set(project_config "${generated_dir}/${PROJECT_NAME}Config.cmake")
-set(TARGETS_EXPORT_NAME "${PROJECT_NAME}Targets")
+set(project_config "${generated_dir}/${PROJECT_NAME}Config.cmake")
+set(targets_export_name "${PROJECT_NAME}Targets")
 set(namespace "${PROJECT_NAME}::")
 
 
+include(CMakePackageConfigHelpers)
 
 
-install(
-    TARGETS TinyDNN
-    EXPORT "${TARGETS_EXPORT_NAME}"
-    LIBRARY DESTINATION "lib"
-    ARCHIVE DESTINATION "lib"
-    RUNTIME DESTINATION "bin"
-    INCLUDES DESTINATION "${include_install_dir}"
+write_basic_package_version_file(
+    "${version_config}" COMPATIBILITY SameMajorVersion
 )
 
 
-
-
-install(
-    FILES ${Tiny_DNN_Header_Files}
-    DESTINATION "${include_install_dir}"
+configure_package_config_file(
+    "cmake/Config.cmake.in"
+    "${project_config}"
+    INSTALL_DESTINATION "${config_install_dir}"
 )
 
+
 install(
-    EXPORT "${TARGETS_EXPORT_NAME}"
+    FILES "${project_config}" "${version_config}"
+    DESTINATION "${config_install_dir}"
+)
+
+
+install(
+    EXPORT "${targets_export_name}"
     NAMESPACE "${namespace}"
     DESTINATION "${config_install_dir}"
 )

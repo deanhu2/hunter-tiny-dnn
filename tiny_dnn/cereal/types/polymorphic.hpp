@@ -30,13 +30,13 @@
 #ifndef CEREAL_TYPES_POLYMORPHIC_HPP_
 #define CEREAL_TYPES_POLYMORPHIC_HPP_
 
-#include <cereal/cereal.hpp>
-#include <cereal/types/memory.hpp>
+#include <tiny_dnn/cereal/cereal.hpp>
+#include <tiny_dnn/cereal/types/memory.hpp>
 
-#include <cereal/details/util.hpp>
-#include <cereal/details/helpers.hpp>
-#include <cereal/details/traits.hpp>
-#include <cereal/details/polymorphic_impl.hpp>
+#include <tiny_dnn/cereal/details/util.hpp>
+#include <tiny_dnn/cereal/details/helpers.hpp>
+#include <tiny_dnn/cereal/details/traits.hpp>
+#include <tiny_dnn/cereal/details/polymorphic_impl.hpp>
 
 #ifdef _MSC_VER
 #define STATIC_CONSTEXPR static

@@ -37,8 +37,8 @@
 #include <unordered_map>
 #include <stdexcept>
 
-#include <cereal/macros.hpp>
-#include <cereal/details/static_object.hpp>
+#include <tiny_dnn/cereal/macros.hpp>
+#include <tiny_dnn/cereal/details/static_object.hpp>
 
 namespace cereal
 {

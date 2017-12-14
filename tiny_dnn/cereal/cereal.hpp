@@ -39,10 +39,10 @@
 #include <cstdint>
 #include <functional>
 
-#include <cereal/macros.hpp>
-#include <cereal/details/traits.hpp>
-#include <cereal/details/helpers.hpp>
-#include <cereal/types/base_class.hpp>
+#include <tiny_dnn/cereal/macros.hpp>
+#include <tiny_dnn/cereal/details/traits.hpp>
+#include <tiny_dnn/cereal/details/helpers.hpp>
+#include <tiny_dnn/cereal/types/base_class.hpp>
 
 namespace cereal
 {
@@ -950,6 +950,6 @@ namespace cereal
 } // namespace cereal
 
 // This include needs to come after things such as binary_data, make_nvp, etc
-#include <cereal/types/common.hpp>
+#include <tiny_dnn/cereal/types/common.hpp>
 
 #endif // CEREAL_CEREAL_HPP_

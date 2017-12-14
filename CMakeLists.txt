@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(TinyDNN VERSION 0.0.10 LANGUAGES CXX)
+project(TinyDNN VERSION 1.0.11 LANGUAGES CXX)
 
 
 add_library(TinyDNN INTERFACE)
